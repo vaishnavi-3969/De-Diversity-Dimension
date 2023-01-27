@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.my-btn {
+  @apply text-[1.2rem] font-bold rounded-md px-1 py-2 leading-none outline mt-6 hover:bg-green-400 hover:text-white duration-500;
+}

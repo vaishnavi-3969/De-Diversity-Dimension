@@ -1,6 +1,7 @@
 import React from 'react';
 import { FeatureCard } from './FeatureCard';
 import DarkLogo from '../assets/darkLogo.gif';
+import AboutUs from './Additional/AboutUs';
 
 export function HomePage() {
   return (
@@ -99,6 +100,9 @@ export function HomePage() {
             />
           </div>
         </div>
+      </div>
+      <div>
+      <AboutUs/>
       </div>
     </div>
   );

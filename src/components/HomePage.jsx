@@ -4,13 +4,38 @@ import DarkLogo from '../assets/darkLogo.gif';
 import AboutUs from './Additional/AboutUs';
 import Team from './Additional/Team';
 import { FaBlog, FaBook, FaEnvelopeOpen, FaEquals, FaMoneyBillAlt, FaMoneyBillWave, FaNetworkWired, FaNotesMedical, FaPeopleCarry, FaShoppingCart, FaUserFriends, FaUsers, FaWineBottle } from 'react-icons/fa';
+import { useAuth0 } from '@auth0/auth0-react';
+import Typing from 'react-typing-effect';
+
+
 
 export function HomePage() {
+  const { user, isAuthenticated, isLoading } = useAuth0();
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
   return (
     <div>
       <div className="flex items-center justify-center h-screen bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500">
         <div className="p-8 bg-gray-800 shadow-md rounded-md max-w-3x1">
-          <p className="text-lg text-white">Welcome to</p>
+         <div className="flex items-center">
+            <Typing speed={100}>
+              <h1 className="text-lg text-white">Hey</h1>
+              {isAuthenticated && (
+                <span className="animate-wave ml-2" role="img" aria-label="Waving Hand">
+                  👋
+                </span>
+              )}
+              <h1 className="text-lg text-white">
+                {isAuthenticated ? (
+                  <Typing.Delay ms={500} />
+                ) : (
+                  <Typing.Delay ms={1000} />
+                )}
+                <Typing>{isAuthenticated ? user.name : ''}</Typing>
+              </h1>
+            </Typing>
+          </div>
           <div className="flex items-center text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500">
             <span><img src={DarkLogo} width={90} /></span> De Diversity Dimension
           </div>

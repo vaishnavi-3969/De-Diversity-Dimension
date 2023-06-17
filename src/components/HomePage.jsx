@@ -2,6 +2,7 @@ import React from 'react';
 import { FeatureCard } from './FeatureCard';
 import DarkLogo from '../assets/darkLogo.gif';
 import AboutUs from './Additional/AboutUs';
+import Team from './Additional/Team';
 
 export function HomePage() {
   return (
@@ -103,6 +104,7 @@ export function HomePage() {
       </div>
       <div>
       <AboutUs/>
+      <Team/>
       </div>
     </div>
   );

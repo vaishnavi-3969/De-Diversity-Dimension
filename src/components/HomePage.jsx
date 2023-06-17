@@ -3,7 +3,7 @@ import { FeatureCard } from './FeatureCard';
 import DarkLogo from '../assets/darkLogo.gif';
 import AboutUs from './Additional/AboutUs';
 import Team from './Additional/Team';
-import { FaBlog, FaBook, FaCartPlus, FaEnvelopeOpen, FaEquals, FaMoneyBillAlt, FaMoneyBillWave, FaNetworkWired, FaNotesMedical, FaPeopleCarry, FaShoppingCart, FaUserFriends, FaUsers, FaWineBottle } from 'react-icons/fa';
+import { FaBlog, FaBook, FaEnvelopeOpen, FaEquals, FaMoneyBillAlt, FaMoneyBillWave, FaNetworkWired, FaNotesMedical, FaPeopleCarry, FaShoppingCart, FaUserFriends, FaUsers, FaWineBottle } from 'react-icons/fa';
 
 export function HomePage() {
   return (
@@ -105,7 +105,7 @@ export function HomePage() {
               darkMode
             />
             <FeatureCard
-            icon={FaUsers}
+              icon={FaUsers}
               title="Community Empowerment and Entrepreneurship"
               description="Fosters connections, networking, event organization and resources for building and advancing LGBTQ+ owned businesses"
               link="/community-engagement-and-empowerent"

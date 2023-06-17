@@ -3,6 +3,7 @@ import "./App.css";
 import { HomePage } from "./components/HomePage";
 import Footer from "./components/Additional/Footer";
 import Sidebar from "./components/Sidebar";
+import Profile from "./components/Additional/Profile";
 
 export function App() {
   return (
@@ -12,6 +13,7 @@ export function App() {
         <Sidebar/>
         <Routes>
           <Route path="/" element={<HomePage/>} exact/>
+          <Route path="/profile" element={<Profile/>} exact/>
         </Routes>
         </div>
       </BrowserRouter>

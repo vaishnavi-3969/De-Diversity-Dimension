@@ -25,7 +25,7 @@ export function HomePage() {
           )}
           </div>
           <div className="flex items-center text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500">
-            <span><img src={DarkLogo} width={90} /></span> De Diversity Dimension
+            <span><img src={DarkLogo} width={120} /></span> De Diversity Dimension
           </div>
 
           <div className="grid grid-cols-4 gap-4 mt-8 overflow-auto max-h-96 max-w-6xl">

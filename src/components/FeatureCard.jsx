@@ -1,14 +1,15 @@
 import React from 'react';
+import { FaBook } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-export function FeatureCard({ title, description, link, animationDelay, darkMode }) {
+export function FeatureCard({ icon: Icon, title, description, link, animationDelay, darkMode }) {
   return (
     <div
       className={`bg-gray-700 rounded-md shadow-md p-6 transform transition duration-500 hover:scale-105  hover:shadow-lg hover:bg-gray-600 animate-fadeIn`}
       style={{ animationDelay: `${animationDelay}ms` }}
     >
-      <h2 className={`text-xl font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-        {title}
+      <h2 className={`text-xl flex font-semibold ${darkMode ? 'text-white' : 'text-gray-900'}`}>
+        <div className="text-purple-500 px-3">{Icon && <Icon size={50} />} &nbsp;&nbsp; </div> {title}
       </h2>
       <p className={`mt-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>{description}</p>
       <Link

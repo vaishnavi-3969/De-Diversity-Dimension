@@ -5,8 +5,7 @@ import AboutUs from './Additional/AboutUs';
 import Team from './Additional/Team';
 import { FaBlog, FaBook, FaEnvelopeOpen, FaEquals, FaMoneyBillAlt, FaMoneyBillWave, FaNetworkWired, FaNotesMedical, FaPeopleCarry, FaShoppingCart, FaUserFriends, FaUsers, FaWineBottle } from 'react-icons/fa';
 import { useAuth0 } from '@auth0/auth0-react';
-import Typing from 'react-typing-effect';
-
+import './HomePage.css';
 
 
 export function HomePage() {
@@ -17,24 +16,13 @@ export function HomePage() {
   return (
     <div>
       <div className="flex items-center justify-center h-screen bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500">
-        <div className="p-8 bg-gray-800 shadow-md rounded-md max-w-3x1">
-         <div className="flex items-center">
-            <Typing speed={100}>
-              <h1 className="text-lg text-white">Hey</h1>
-              {isAuthenticated && (
-                <span className="animate-wave ml-2" role="img" aria-label="Waving Hand">
-                  👋
-                </span>
-              )}
-              <h1 className="text-lg text-white">
-                {isAuthenticated ? (
-                  <Typing.Delay ms={500} />
-                ) : (
-                  <Typing.Delay ms={1000} />
-                )}
-                <Typing>{isAuthenticated ? user.name : ''}</Typing>
-              </h1>
-            </Typing>
+        <div className="p-8 bg-gray-800 shadow-md rounded-md max-w-3x1 text-white flex flex-col items-center justify-center">
+          <div >
+          {isAuthenticated ? (
+            <p className="glow-text"> Hey <span role="img" aria-label="Waving Hand">👋</span> {user.name}, welcome to...</p>
+          ) : (
+            <p className="glow-text"> Hey <span role="img" aria-label="Waving Hand">👋</span>, welcome to...</p>
+          )}
           </div>
           <div className="flex items-center text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500">
             <span><img src={DarkLogo} width={90} /></span> De Diversity Dimension

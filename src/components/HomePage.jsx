@@ -49,7 +49,7 @@ export function HomePage() {
               icon={FaBlog}
               title="Blog"
               description="Express yourself and read diverse perspectives within the LGBTQ+ community."
-              link="/blog"
+              link="/blogList"
               animationDelay="300"
               darkMode
             />

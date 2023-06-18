@@ -6,6 +6,8 @@ import Sidebar from "./components/Sidebar";
 import Profile from "./components/Additional/Profile";
 import BlogForm, { BlogList } from "./components/Blog/BlogForm";
 import Blogs from "./components/Blog/Blogs";
+import LGBTQEducation from "./components/Inclusivity Education/LGBTQEducation";
+import AdvocacySection from "./components/Activism & Advocacy/AdvocacySection";
 
 export function App() {
   return (
@@ -19,6 +21,8 @@ export function App() {
           <Route path="/profile" element={<Profile/>} exact/>
           <Route path="/blogForm" element={<BlogForm/>} exact/>
           <Route path="/blogList" element={<Blogs/>} exact/>
+          <Route path="/inclusivity-education" element={<LGBTQEducation/>} exact/>
+          <Route path="/activism-and-advocacy" element={<AdvocacySection/>} exact/>
         </Routes>
         </div>
       </BrowserRouter>

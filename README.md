@@ -18,7 +18,12 @@ Join us in **building an inclusive future**!
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c4347e77-a742-46f9-8155-4e521b9bc3da/deploy-status)](https://app.netlify.com/sites/de-diversity-dimension/deploys)
 </hr>
-To run this example:
 
+ <h2>Tools and Technologies used</h2>
+     <img src="https://skillicons.dev/icons?i=github,git,react,tailwind,html,css,js,vscode,firebase,vite"/>
+
+
+<hr/>
+To run this locally:
 - `npm install` or `yarn`
 - `npm run dev` or `yarn dev`

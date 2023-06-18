@@ -4,7 +4,8 @@ import { HomePage } from "./components/HomePage";
 import Footer from "./components/Additional/Footer";
 import Sidebar from "./components/Sidebar";
 import Profile from "./components/Additional/Profile";
-import BlogForm from "./components/Blog/BlogForm";
+import BlogForm, { BlogList } from "./components/Blog/BlogForm";
+import Blogs from "./components/Blog/Blogs";
 
 export function App() {
   return (
@@ -17,7 +18,7 @@ export function App() {
           <Route path="/profile" element={<Profile/>} exact/>
           <Route path="/profile" element={<Profile/>} exact/>
           <Route path="/blogForm" element={<BlogForm/>} exact/>
-          
+          <Route path="/blogList" element={<Blogs/>} exact/>
         </Routes>
         </div>
       </BrowserRouter>

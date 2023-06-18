@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuid } from "uuid";
 import {
   getFirestore,
   collection,
   addDoc,
+  updateDoc,
+  doc,
+  onSnapshot
 } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import Hands from "../../assets/blog.png";
@@ -205,4 +208,117 @@ const BlogForm = ({ onAddBlog }) => {
   );
 };
 
+const BlogPost = ({ blog }) => {
+  const { user } = useAuth0();
+  const [upvotes, setUpvotes] = useState(blog.upvotes);
+  const [comments, setComments] = useState(blog.comments);
+  const [newComment, setNewComment] = useState("");
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(doc(db, "blogs", blog.id), (doc) => {
+      const updatedBlog = doc.data();
+      setComments(updatedBlog.comments);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, [blog.id]);
+
+  const handleUpvote = () => {
+    const updatedUpvotes = upvotes + 1;
+    setUpvotes(updatedUpvotes);
+
+    updateDoc(doc(db, "blogs", blog.id), { upvotes: updatedUpvotes });
+  };
+
+  const handleAddComment = async () => {
+    if (newComment.trim() === "") return;
+
+    const comment = {
+      id: uuid(),
+      text: newComment,
+      author: user.name,
+    };
+
+    const updatedComments = [...comments, comment];
+    setComments(updatedComments);
+
+    updateDoc(doc(db, "blogs", blog.id), { comments: updatedComments });
+
+    setNewComment("");
+  };
+
+  return (
+    
+    <div className="blog-post border border-gray-300 rounded-md p-4 mb-6 bg-white">
+      <h2 className="text-2xl font-bold mb-2">{blog.title}</h2>
+      <p className="text-gray-300">{blog.content}</p>
+      <p className="text-gray-400">Author: {blog.author}</p>
+      <p className="text-gray-400">Category: {blog.category}</p>
+      <div className="flex items-center mt-4">
+        <button
+          onClick={handleUpvote}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded mr-2"
+        >
+          Upvote
+        </button>
+        <p className="text-gray-400">Upvotes: {upvotes}</p>
+      </div>
+
+      <div className="mt-6">
+        <h3 className="text-xl font-bold mb-2">Comments</h3>
+        <ul>
+          {comments.map((comment) => (
+            <li key={comment.id} className="mb-2">
+              <p>{comment.text}</p>
+              <p className="text-gray-400">Author: {comment.author}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-6">
+        <input
+          type="text"
+          value={newComment}
+          onChange={(event) => setNewComment(event.target.value)}
+          className="text-gray-700 w-full px-2 py-1 rounded"
+          placeholder="Add a comment"
+        />
+        <button
+          onClick={handleAddComment}
+          className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded ml-2"
+        >
+          Add Comment
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const BlogList = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = onSnapshot(collection(db, "blogs"), (snapshot) => {
+      const fetchedBlogs = snapshot.docs.map((doc) => doc.data());
+      setBlogs(fetchedBlogs);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  return (
+    <div>
+      {blogs.map((blog) => (
+        <BlogPost key={blog.id} blog={blog} />
+      ))}
+    </div>
+  );
+};
+
 export default BlogForm;
+export { BlogList };

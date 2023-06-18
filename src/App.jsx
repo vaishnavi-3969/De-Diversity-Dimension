@@ -11,6 +11,7 @@ import AdvocacySection from "./components/Activism & Advocacy/AdvocacySection";
 import SafeSpacesAndCommunitySection from "./components/Safe Spaces & Community/SafeSpacesAndCommunitySection";
 import HealthWellnessSection from "./components/Health & Wellness/HealthWellness";
 import LGBTQMarketplace from "./components/LGBTQ+ Friendly Shopping/LGBTQMarketplace";
+import MentalHealthSupport from "./components/Mental Health Resources/MentalHealthSupport";
 
 export function App() {
   return (
@@ -29,6 +30,7 @@ export function App() {
           <Route path="/safe-spaces-and-community" element={<SafeSpacesAndCommunitySection/>} exact/>
           <Route path="/health-and-wellness" element={<HealthWellnessSection/>} exact/>
           <Route path="/shopping" element={<LGBTQMarketplace/>} exact/>
+          <Route path="/mental-health" element={<MentalHealthSupport/>} exact/>
         </Routes>
         </div>
       </BrowserRouter>

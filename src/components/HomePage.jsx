@@ -3,7 +3,7 @@ import { FeatureCard } from './FeatureCard';
 import DarkLogo from '../assets/darkLogo.gif';
 import AboutUs from './Additional/AboutUs';
 import Team from './Additional/Team';
-import { FaBlog, FaBook, FaEnvelopeOpen, FaEquals, FaMoneyBillAlt, FaMoneyBillWave, FaNetworkWired, FaNotesMedical, FaPeopleCarry, FaShoppingCart, FaUserFriends, FaUsers, FaWineBottle } from 'react-icons/fa';
+import { FaBlog, FaBook, FaEnvelopeOpen, FaEquals, FaGlasses, FaMoneyBillAlt, FaMoneyBillWave, FaNetworkWired, FaNotesMedical, FaPeopleCarry, FaShoppingCart, FaUserFriends, FaUsers, FaWineBottle } from 'react-icons/fa';
 import { useAuth0 } from '@auth0/auth0-react';
 import './HomePage.css';
 
@@ -65,7 +65,7 @@ export function HomePage() {
               icon={FaMoneyBillAlt}
               title="Employment Equality"
               description="Search and Post about LGBTQ+ friendly job opportunities"
-              link="/employment-equality"
+              link="/blog"
               animationDelay="500"
               darkMode
             />
@@ -73,7 +73,7 @@ export function HomePage() {
               icon={FaNetworkWired}
               title="Support Networks"
               description="Connect, Access Mentorship programs. Explore career growth resources and support network"
-              link="/"
+              link="/blog"
               animationDelay="600"
               darkMode
             />
@@ -123,6 +123,14 @@ export function HomePage() {
               description="Fosters connections, networking, event organization and resources for building and advancing LGBTQ+ owned businesses"
               link="/community-engagement-and-empowerent"
               animationDelay="1200"
+              darkMode
+            />
+            <FeatureCard
+              icon={FaGlasses}
+              title="Metaverse"
+              description="Coming soon....."
+              link="/"
+              animationDelay="1300"
               darkMode
             />
           </div>

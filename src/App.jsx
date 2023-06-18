@@ -8,6 +8,8 @@ import BlogForm, { BlogList } from "./components/Blog/BlogForm";
 import Blogs from "./components/Blog/Blogs";
 import LGBTQEducation from "./components/Inclusivity Education/LGBTQEducation";
 import AdvocacySection from "./components/Activism & Advocacy/AdvocacySection";
+import SafeSpacesAndCommunitySection from "./components/Safe Spaces & Community/SafeSpacesAndCommunitySection";
+import HealthWellnessSection from "./components/Health & Wellness/HealthWellness";
 
 export function App() {
   return (
@@ -23,6 +25,8 @@ export function App() {
           <Route path="/blogList" element={<Blogs/>} exact/>
           <Route path="/inclusivity-education" element={<LGBTQEducation/>} exact/>
           <Route path="/activism-and-advocacy" element={<AdvocacySection/>} exact/>
+          <Route path="/safe-spaces-and-community" element={<SafeSpacesAndCommunitySection/>} exact/>
+          <Route path="/health-and-wellness" element={<HealthWellnessSection/>} exact/>
         </Routes>
         </div>
       </BrowserRouter>

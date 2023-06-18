@@ -24,6 +24,7 @@ Join us in **building an inclusive future**!
 
 
 <hr/>
+
 To run this locally:
 - `npm install` or `yarn`
 - `npm run dev` or `yarn dev`

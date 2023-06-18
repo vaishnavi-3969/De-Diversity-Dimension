@@ -11,6 +11,7 @@ import {
 import { initializeApp } from "firebase/app";
 import Hands from "../../assets/blog.png";
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB4eurB_mgOyTIs9_70wviE_RPji16NGcs",
@@ -105,7 +106,7 @@ const BlogForm = ({ onAddBlog }) => {
     <div className="flex items-center justify-center h-screen bg-gradient-to-r from-red-500 via-yellow-500 to-purple-500">
       <div className="p-8 bg-gray-800 shadow-md rounded-md min-w-[1000px] text-white flex flex-col items-center justify-center">
         <div className="flex">
-        <h1>Write the future...</h1>
+          <h1>Write the future...</h1>
           <img src={Hands} alt="Dark Logo" className="h-16 mb-4" />
         </div>
         <form onSubmit={handleSubmit} className="space-y-4 w-full">
@@ -200,9 +201,15 @@ const BlogForm = ({ onAddBlog }) => {
           >
             Submit
           </button>
+          <Link to="/blogList">
+            <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+              <span>Read Blogs...</span>
+            </button>
+          </Link>
         </form>
+
       </div>
-      
+
     </div>
 
   );
@@ -250,9 +257,10 @@ const BlogPost = ({ blog }) => {
   };
 
   return (
-    
-    <div className="blog-post border border-gray-300 rounded-md p-4 mb-6 bg-white">
-      <h2 className="text-2xl font-bold mb-2">{blog.title}</h2>
+
+    <div className="blog-post border border-gray-900 rounded-md p-4 mb-6 bg-gray-700">
+      <h2 className="text-2xl font-bold mb-2 text-white ">{blog.title}</h2>
+      <hr />
       <p className="text-gray-300">{blog.content}</p>
       <p className="text-gray-400">Author: {blog.author}</p>
       <p className="text-gray-400">Category: {blog.category}</p>
@@ -267,7 +275,7 @@ const BlogPost = ({ blog }) => {
       </div>
 
       <div className="mt-6">
-        <h3 className="text-xl font-bold mb-2">Comments</h3>
+        <h3 className="text-xl font-bold mb-2 text-white">Comments</h3>
         <ul>
           {comments.map((comment) => (
             <li key={comment.id} className="mb-2">
@@ -312,13 +320,14 @@ const BlogList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-4">
       {blogs.map((blog) => (
         <BlogPost key={blog.id} blog={blog} />
       ))}
     </div>
   );
 };
+
 
 export default BlogForm;
 export { BlogList };

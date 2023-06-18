@@ -14,9 +14,10 @@ Join us in **building an inclusive future**!
 
 > "Diversity is our strength. Together, we can create a world where everyone is valued and celebrated for who they are."
 
+</hr>
 
-# Example
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c4347e77-a742-46f9-8155-4e521b9bc3da/deploy-status)](https://app.netlify.com/sites/de-diversity-dimension/deploys)
+</hr>
 To run this example:
 
 - `npm install` or `yarn`

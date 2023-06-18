@@ -81,7 +81,7 @@ export function HomePage() {
               icon={FaShoppingCart}
               title="LGBTQ+ Friendly Shopping"
               description="An online marketplace for LGBTQ+ individuals to sell and buy products catering to community interests and themes"
-              link="/"
+              link="/shopping"
               animationDelay="700"
               darkMode
             />
